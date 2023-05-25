@@ -5,30 +5,44 @@ const router = express.Router()
 router.get('/', (req, res) => {
     console.log('elenco voti')
 
-    res.send('elenco voti')
+    res.send([
+        {
+            nome: "tizio",
+            cognome: "caio",
+            voto: 1
+        },
+        {
+            nome: "tizio 2",
+            cognome: "caio 2",
+            voto: 2
+        }
+    ])
 })
-
 
 router.get('/:id', (req, res) => {
     console.log(`singolo voto ${req.params.id}`)
 
-    res.send(`singolo voto ${req.params.id}`)
+    res.send({
+        nome: "tizio",
+        cognome: "caio",
+        voto: 1
+    })
 })
 
 router.post('/', (req, res) => {
-    console.log('creazione voto')
+    console.log('creazione voto', req.body)
 
-    res.send('creazione voto')
+    res.status(201).send('creazione voto')
 })
 
 router.put('/:id', (req, res) => {
-    console.log('rimpiazzo voto')
+    console.log(`rimpiazzo voto: ${req.params.id}`, req.body)
 
     res.send('rimpiazzo voto')
 })
 
 router.patch('/:id', (req, res) => {
-    console.log('modifico voto')
+    console.log(`modifico voto: ${req.params.id}`, req.body)
 
     res.send('modifico voto')
 })
