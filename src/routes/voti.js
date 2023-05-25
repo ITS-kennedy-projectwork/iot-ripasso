@@ -15,6 +15,24 @@ router.get('/:id', (req, res) => {
     res.send(`singolo voto ${req.params.id}`)
 })
 
+router.post('/', (req, res) => {
+    console.log('creazione voto')
+
+    res.send('creazione voto')
+})
+
+router.put('/:id', (req, res) => {
+    console.log('rimpiazzo voto')
+
+    res.send('rimpiazzo voto')
+})
+
+router.patch('/:id', (req, res) => {
+    console.log('modifico voto')
+
+    res.send('modifico voto')
+})
+
 
 router.delete('/:id', (req, res) => {
     console.log(`elimina singolo voto ${req.params.id}`)
